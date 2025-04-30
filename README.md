@@ -66,8 +66,9 @@ sqlite3 --version
 
 ```bash
 
-git clone <repository-url>
-cd travel_itinerary
+git clone https://github.com/royaals/travel-management-system.git
+cd travel-management-system
+cd backend
 
 # Create and activate virtual environment
 # Windows
