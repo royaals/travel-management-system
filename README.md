@@ -1,4 +1,4 @@
-# Travel Itinerary Management System
+# Travel Management System
 
 A robust backend system for managing travel itineraries. Built with **FastAPI** and **SQLAlchemy**, this system offers complete control over itinerary creation, management, and recommendations.
 
