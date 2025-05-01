@@ -33,7 +33,8 @@ Designed using SQLAlchemy ORM:
 
 ###  Prerequisites
 - Python 3.7+
-- SQLite3
+- SQLite3 or PostgreSQL
+- Docker or PostgreSQL Cloud
 
 ###  SQLite Installation
 
@@ -60,6 +61,13 @@ sudo apt install sqlite3
 ```bash
 
 sqlite3 --version  
+```
+
+# Alternatively, use a PostgreSQL cloud database or Docker
+**Set the `DATABASE_URL` environment variable:**
+
+```bash
+DATABASE_URL=postgresql://postgres:password@localhost:5432/travel_itinerary
 ```
 
 ###  Setting Up the Environment
