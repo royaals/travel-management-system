@@ -5,15 +5,17 @@ from . import crud, models, schemas
 from .database import engine, get_db, Base
 from .mcp.server import mcp_server
 from .seed import seed_database
+import os
 
 
-Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title="Travel Itinerary Management System",
     description="API for managing travel itineraries in Thailand's Phuket and Krabi regions",
-    version="1.0.0",
+    version="1.0.0"
 )
+Base.metadata.create_all(bind=engine)
 
 
 @app.on_event("startup")
@@ -187,8 +189,14 @@ def reseed_database(db: Session = Depends(get_db)):
         raise HTTPException(
             status_code=500, detail=f"Failed to seed database: {str(e)}"
         )
+    
 if __name__ == "__main__":
     import uvicorn
-    import os
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=True)
+    
+    port = int(os.environ.get("PORT", 10000))  # Render's default port is 10000
+    uvicorn.run(
+        "app.main:app",
+        host="0.0.0.0",
+        port=port,
+        reload=False  # Set to False in production
+    )
